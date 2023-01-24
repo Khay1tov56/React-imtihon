@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('../../assets/fonts/montserrat-alternates-v17-latin-regular.woff2') format('woff2'), 
+         url('../../assets/fonts/montserrat-alternates-v17-latin-regular.woff') format('woff'); 
+  }
+
+.slick-dots li button::before {
+    content: "" !important;
+    width: 57px !important;
+    height: 3px !important;
+    color: rgb(0, 136, 255) !important;
+    background-color: rgb(255, 255, 255) !important;
+    border-radius: 6px !important;
+    z-index: 99 !important;
+}
+.slick-dots{
+    position: absolute;
+    bottom: 100px !important;
+    left: 90px !important;
+width: auto !important;
+height: 0px !important;
+z-index: 99 !important;
+
+
+}
+.slick-dots li{
+    width: 57px !important;
+    height: 3px !important;
+    z-index: 99 !important;
+
+}
+
+.slick-arrow {
+    display: none !important;
+}
