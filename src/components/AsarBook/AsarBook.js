@@ -49,6 +49,7 @@ const AsarBook = ({item}) => {
               fontSize: "31px",
               lineHeight: "46px",
               color: "#C9AC8C",
+              textDecoration:"none",
               
             }}  to="/books" component={RouterLink}>Barchasini ko’rish</Link>
         </Typography>

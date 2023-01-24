@@ -6,7 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import loginimage from "../../assets/images/registerbg.png"
 import { Link, useNavigate } from 'react-router-dom';
-import { useRef, useContext } from 'react';
+import { useRef, useContext, useState, useEffect } from 'react';
+import { Lang } from '../../lang/Lang';
 
 
 
@@ -75,6 +76,15 @@ export const Register = () => {
         .catch(err => console.log(err))
       };
 
+              
+  const [lang,setLAng]=useState("eng")
+
+
+  useEffect(() => {
+    setLAng(localStorage.getItem("language"))
+  }, []);
+
+
   return (
 
 
@@ -86,14 +96,14 @@ export const Register = () => {
            <img width="500" height="500"  src={loginimage} alt="Login" />
             </Box>
           <Box sx={{width:"50%", paddingTop:"75px", paddingLeft:"135px", paddingRight:"111px",  backgroundColor:"#1B1B1B"}}>
-            <Typography variant='h4'  component="h2" color="#fff"  textAlign="start" gutterBottom>Sign in </Typography>
+            <Typography variant='h4'  component="h2" color="#fff"  textAlign="start" gutterBottom>{Lang[lang].login.signup} </Typography>
          <Typography  sx={{ paddingTop:"10px",paddingBottom:"20px", fontSize:"13px", color:"#fff"}} >
-         Do not you have an account?
-         <Link  to="/login">Sign up</Link>
+         {Lang[lang].login.hsb} 
+         <Link  to="/login">  {Lang[lang].login.signin}  </Link>
          </Typography>
          <form onSubmit={onSubmit}>
       <Stack spacing={2} marginBottom="20px" >
-      <InputBase inputRef={first_name}  placeholder='First Name'  sx={{
+      <InputBase inputRef={first_name}  placeholder={Lang[lang].profile.first}  sx={{
                     padding:"5px 29px",
                     border: "1px solid #B4B4BB",
                     borderRadius: "10px",
@@ -102,8 +112,8 @@ export const Register = () => {
                     fontSize: "14px",
                     lineHeight: "16px",
                     color: "#AAAAAA",
-                  }} label="First Name" helperText={errors.first_name?.message} {...register("first_name")} required/>
-       <InputBase inputRef={last_name} placeholder='Last Name'  sx={{
+                  }} label={Lang[lang].profile.first} helperText={errors.first_name?.message} {...register("first_name")} required/>
+       <InputBase inputRef={last_name} placeholder={Lang[lang].profile.last}  sx={{
                     padding:"5px 29px",
                     border: "1px solid #B4B4BB",
                     borderRadius: "10px",
@@ -112,8 +122,8 @@ export const Register = () => {
                     fontSize: "14px",
                     lineHeight: "16px",
                     color: "#AAAAAA",
-                  }} label="Last Name" helperText={errors.last_name?.message} {...register("last_name")} required/>
-       <InputBase inputRef={email} placeholder='Email'  sx={{
+                  }} label={Lang[lang].profile.last}  helperText={errors.last_name?.message} {...register("last_name")} required/>
+       <InputBase inputRef={email} placeholder={Lang[lang].security.email}   sx={{
                     padding:"5px 29px",
                     border: "1px solid #B4B4BB",
                     borderRadius: "10px",
@@ -122,8 +132,8 @@ export const Register = () => {
                     fontSize: "14px",
                     lineHeight: "16px",
                     color: "#AAAAAA",
-                  }} type="email"  label="Email" helperText={errors.email?.message} {...register("email")} required/>
-       <InputBase inputRef={phone}  placeholder='Phone'  sx={{
+                  }} type="email"  label={Lang[lang].security.email}  helperText={errors.email?.message} {...register("email")} required/>
+       <InputBase inputRef={phone}  placeholder={Lang[lang].profile.phone}   sx={{
                     padding:"5px 29px",
                     border: "1px solid #B4B4BB",
                     borderRadius: "10px",
@@ -132,8 +142,8 @@ export const Register = () => {
                     fontSize: "14px",
                     lineHeight: "16px",
                     color: "#AAAAAA",
-                  }} type="tel"  label="Phone" helperText={errors.number?.message} {...register("phone")}required />
-       <InputBase inputRef={password}  placeholder='Password'  sx={{
+                  }} type="tel"  label={Lang[lang].profile.phone}  helperText={errors.number?.message} {...register("phone")}required />
+       <InputBase inputRef={password}  placeholder={Lang[lang].security.pass}   sx={{
                     padding:"5px 29px",
                     border: "1px solid #B4B4BB",
                     borderRadius: "10px",
@@ -145,13 +155,10 @@ export const Register = () => {
                   }}  type= "password"
        helperText={errors.password?.message}
        {...register("password")}
-       label="Password"
+       label={Lang[lang].security.pass} 
        required />
             
        </Stack>
-
-       {/* <InputBase ref={refs} type='password' name='password' placeholder='password'/> */}
-
        <Button  variant="contained" sx={{
         width:"328px",
         background: "#FFFFFF",
@@ -159,7 +166,7 @@ export const Register = () => {
        color:"#000",
        fontWeight:"bold",
         
-        }}  type='submit' disabled={!isValid}>Next step</Button>
+        }}  type='submit' disabled={!isValid}>{Lang[lang].login.next} </Button>
        </form>
           </Box>
               </Box>

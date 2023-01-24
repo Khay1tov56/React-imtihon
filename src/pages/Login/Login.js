@@ -9,6 +9,7 @@ import axios from 'axios';
 // import { Link, useNavigate } from 'react-router-dom';
 import loginimage from "../../assets/images/loginbg.png"
 import { Link, useNavigate } from 'react-router-dom';
+import { Lang } from '../../lang/Lang';
 
 
 export const Login = () => {
@@ -60,6 +61,14 @@ export const Login = () => {
         .catch(err => console.log(err))
       };
 
+        
+  const [lang,setLAng]=useState("eng")
+
+
+  useEffect(() => {
+    setLAng(localStorage.getItem("language"))
+  }, []);
+
 
   return (
     <Box sx={{
@@ -70,14 +79,14 @@ export const Login = () => {
      <img width="500" height="500"  src={loginimage} alt="Login" />
       </Box>
     <Box sx={{width:"50%", paddingTop:"191px", paddingLeft:"135px", paddingRight:"111px",  backgroundColor:"#1B1B1B"}}>
-      <Typography variant='h4' component="h2" color="#fff"  textAlign="start" gutterBottom>Sign in </Typography>
+      <Typography variant='h4' component="h2" color="#fff"  textAlign="start" gutterBottom>{Lang[lang].login.signup}</Typography>
    <Typography  sx={{ paddingTop:"10px",paddingBottom:"20px", fontSize:"13px", color:"#fff"}} >
-   Do not you have an account?
-   <Link  to="/register"> Sign up</Link>
+   {Lang[lang].login.hsbin}
+   <Link  to="/register"> {Lang[lang].login.signin}</Link>
    </Typography>
       <form onSubmit={onSubmit}>
       <Stack spacing={2} marginBottom="20px">
-      <InputBase inputRef={email}  placeholder='Email'  sx={{
+      <InputBase inputRef={email}  placeholder={Lang[lang].security.email}  sx={{
                     padding:"5px 29px",
                     border: "1px solid #B4B4BB",
                     borderRadius: "10px",
@@ -86,8 +95,8 @@ export const Login = () => {
                     fontSize: "14px",
                     lineHeight: "16px",
                     color: "#AAAAAA",
-                  }}  type="email"  label="Email" helperText={errors.email?.message} {...register("email")} />
-      <InputBase inputRef={password}  placeholder='Password'  sx={{
+                  }}  type="email"  label={Lang[lang].security.email}  helperText={errors.email?.message} {...register("email")} />
+      <InputBase inputRef={password}  placeholder={Lang[lang].security.pass}  sx={{
                     padding:"5px 29px",
                     border: "1px solid #B4B4BB",
                     borderRadius: "10px",
@@ -100,7 +109,7 @@ export const Login = () => {
       color='success'
       helperText={errors.password?.message}
       {...register("password")}
-      label="Password"
+      label={Lang[lang].security.pass} 
        />
            
       </Stack>
@@ -112,7 +121,7 @@ export const Login = () => {
        color:"#000",
        fontWeight:"bold",
         
-        }}  type='submit' disabled={!isValid}>Next step</Button>
+        }}  type='submit' disabled={!isValid}>{Lang[lang].login.next} </Button>
       </form>
     </Box>
         </Box>

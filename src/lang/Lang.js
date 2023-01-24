@@ -79,6 +79,7 @@ uz : {
         newpassword: "Yangi Parol",
         pleasnewpass : "Iltimos, Yangi parolingiz kiriting.",
         btnsave:"O'zgarishlarni saqlang",
+        pass:"Parol",
 
     },
 
@@ -106,6 +107,15 @@ uz : {
         yil: "Yil",
         tlqmlm: "To’liq ma’lumot __",
     },
+
+    login: {
+        signup: "Ro'yxatdan o'tish",
+        hsb:"Hisobingiz bormi?",
+        signin: "Tizimga kirish",
+        hsbin:"Hisobingiz yo'qmi?",
+        next:"Keyingi qadam",
+
+    }
 
 
 },
@@ -188,6 +198,7 @@ eng: {
         newpassword: "New Password",
         pleasnewpass : "Please enter your phone number.",
         btnsave: "Save Changes",
+        pass:"Password",
 
     },
 
@@ -215,6 +226,15 @@ eng: {
         yil: "Years",
         tlqmlm: "Full details __",
     },
+
+    login: {
+        signup: "Sign up",
+        hsb:"Do you have an account? log in",
+        signin: "Log in",
+        hsbin:"Don't have an account? Sign up",
+        next:"Next step",
+
+    }
 },
 
     ru : {
@@ -296,6 +316,8 @@ eng: {
            newpassword: "новый пароль",
            pleasnewpass : "Пожалуйста, введите свой номер телефона.",
            btnsave: "Сохранить изменения",
+           pass:"Пароль",
+
           },
 
           settings: {
@@ -322,6 +344,16 @@ eng: {
             yil: "Годы",
             tlqmlm: "Полная информация __",
         },
+
+        
+       login: {
+           signup: "Зарегистрироваться",
+           hsb:"У тебя есть аккаунт? авторизоваться",
+            signin: "Авторизоваться",
+           hsbin:"У вас нет аккаунта? Зарегистрироваться",
+           next:"Следующий шаг",
+
+    }
 
     }
 
