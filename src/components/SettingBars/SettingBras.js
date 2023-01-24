@@ -1,7 +1,7 @@
 import { Box, Stack } from '@mui/system'
 import React, { useEffect, useState } from 'react'
-import { Container, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Container, Typography, Link } from '@mui/material';
+import { Link as MuiLink } from 'react-router-dom';
 import { Lang } from '../../lang/Lang';
 
 
@@ -37,7 +37,7 @@ const SettingBras = () => {
            <Stack>
         <Typography >
          <span> 1</span>
-            <Link to="/profile" > {Lang[lang].profile.profile} </Link>
+            <Link component={MuiLink}  to="/profile" > {Lang[lang].profile.profile} </Link>
           </Typography>
         </Stack>
         </Box>
@@ -45,13 +45,13 @@ const SettingBras = () => {
         <Box >
         <Typography >
          <span> 2</span>
-            <Link to="/security" > {Lang[lang].security.security} </Link>
+            <Link component={MuiLink}  to="/security" > {Lang[lang].security.security} </Link>
           </Typography>
         </Box>
         <Box >
         <Typography >
          <span> 3</span>
-            <Link to="/settings" > {Lang[lang].settings.title} </Link>
+            <Link  component={MuiLink}   to="/settings" > {Lang[lang].settings.title} </Link>
           </Typography>
         </Box>
       </Box>

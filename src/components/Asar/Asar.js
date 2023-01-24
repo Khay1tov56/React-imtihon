@@ -74,8 +74,9 @@ const Asar = () => {
               fontSize: "31px",
               lineHeight: "46px",
               color: "#C9AC8C",
+              textDecoration:"none"
               
-            }}  to="/" >   {Lang[lang].shoir.barchasi}</Link>
+            }}  component={RouterLink}  to="/" >   {Lang[lang].shoir.barchasi}</Link>
         </Typography>
       </Box>
 

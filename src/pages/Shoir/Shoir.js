@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react'
 import  Header  from "../../components/Header/Header"
 import  Typography  from '@mui/material/Typography';
 import { Container, Box, Stack } from '@mui/system';
-import { Card, CardContent, CardMedia } from '@mui/material';
-import Hoshimov from "../../assets/images/hoshimov.png"
+import { CardMedia } from '@mui/material';
 import { Link, useParams } from 'react-router-dom';
-import Dunyoni from "../../assets/images/dunyoni.png"
 import Asar from '../../components/Asar/Asar';
 import axios from 'axios';
 import "./shoir.css"

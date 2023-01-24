@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Box, ButtonBase, Link, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-
+import { Lang } from '../../lang/Lang';
 import axios from 'axios';
 import { Container } from '@mui/system';
 import Kitob from '../Boks/Boks';
@@ -42,6 +42,12 @@ useEffect(() => {
 
 
 
+const [lang,setLAng]=useState("eng")
+
+useEffect(() => {
+  setLAng(localStorage.getItem("language"))
+}, []);
+
 
   return (
     <Box  sx={{
@@ -59,7 +65,7 @@ useEffect(() => {
         lineHeight: "48px",
         color: "#C9AC8C",
     }}>
-    Asosiy kategoriyalar
+   {Lang[lang].categ.categoria}
     </Typography>
     <Box sx={{
       display: 'flex',

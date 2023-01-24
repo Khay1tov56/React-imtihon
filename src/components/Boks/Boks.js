@@ -7,6 +7,7 @@ import { Stack } from '@mui/system';
 import { Button, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import axios from 'axios';
+import { Lang } from '../../lang/Lang';
 
 
 const Boks = ({categordata}) => {
@@ -36,11 +37,21 @@ const Boks = ({categordata}) => {
 
   }
   
+  
+const [lang,setLAng]=useState("eng")
+
+useEffect(() => {
+  setLAng(localStorage.getItem("language"))
+}, []);
 
 
   return (
     <>
     <Container maxWidth="xl" >
+    <Box sx={{
+      display: "flex",
+    }}>
+
      <Box sx={{
         zIndex:"22",
         
@@ -70,7 +81,7 @@ const Boks = ({categordata}) => {
             color: "#C9AC8C",
 
         }}>
-        Qidirish
+        {Lang[lang].formgroup.qdr}
         </Typography>
         <Stack>
             <form onSubmit={SearchBookFn}>
@@ -79,7 +90,7 @@ const Boks = ({categordata}) => {
                     background: "#404040",
                     borderRadius: "15px",
                     color: "#fff",
-                }} name="qidirish" type="search"  placeholder="Adiblar, kitoblar, audiolar, maqolalar..." inputRef={searchRef} />
+                }} name="qidirish" type="search"  placeholder={Lang[lang].formgroup.place} inputRef={searchRef} />
                 <Button sx={{
                     width: "160px",
                     height: "48px",
@@ -87,7 +98,7 @@ const Boks = ({categordata}) => {
                     borderRadius: "15px",
                     marginLeft:"20px",
                     marginTop:"5px"
-                }} type='submit' variant="contained" startIcon={<SearchIcon />}>Izlash</Button>
+                }} type='submit' variant="contained" startIcon={<SearchIcon />}>{Lang[lang].formgroup.izl} </Button>
             </form>
         </Stack>
       </Box>
@@ -166,7 +177,7 @@ const Boks = ({categordata}) => {
           height:"352px" ,
           borderRadius:"15px",
           margin:"20px",
-          bgcolor:"#0000"
+          bgcolor:"#0000",
           }}>
       <CardMedia
         component="img"
@@ -206,6 +217,7 @@ const Boks = ({categordata}) => {
         ))
         
 }
+    </Box>
     </Container>
       
     </>

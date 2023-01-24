@@ -107,7 +107,9 @@ const Temuriy = ({categordata}) => {
     </Box>
     </Box>
 
-    <Box>
+    <Box sx={{
+      display:"flex"
+    }}>
       {searchstate?.length  ? 
        searchstate?.map(item => (
         
